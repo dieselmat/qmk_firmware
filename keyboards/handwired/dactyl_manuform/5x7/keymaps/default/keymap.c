@@ -5,9 +5,11 @@
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QWERTY 0
-#define _FN     1
-#define _NUMPAD 2
+#define _COLEMAK 0
+#define _NUMBERS 1
+#define _SYMBOLS 2
+#define _PAREN 3
+#define _ARROW 4
 
 // Some basic macros
 #define TASK    LCTL(LSFT(KC_ESC))
@@ -17,64 +19,83 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-[_QWERTY] = LAYOUT_5x7(
+[_COLEMAK] = LAYOUT_5x7(
   // left hand
-   KC_ESC,    KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   KC_6,
-   KC_TAB,    KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   KC_LBRC,
-   KC_LCTL,   KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   TAB_RO,
-   OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,
-   KC_CAPS,   KC_LGUI, TAB_L,   TAB_R,
-                               TT(_FN), KC_SPC,
+   KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(1),
+   LCTL(KC_BSPACE),LT(1,KC_Q),     LT(2,KC_W),     LT(3,KC_F),     LT(4,KC_P),     KC_B,           KC_CAPSLOCK,
+   KC_BSPACE,      LCTL_T(KC_A),   LSFT_T(KC_R),   LALT_T(KC_S),   LGUI_T(KC_T),   KC_G,           KC_TRANSPARENT,
+   KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           
+   KC_LCTRL,       KC_LEFT,        KC_DOWN,        KC_UP,
+                               TT(_NUMBERS), KC_SPC,
                                KC_END, KC_HOME,
                                KC_PSCR, TASK,
-        // right hand
-                     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_GRV,
-                     KC_RBRC, KC_Y,    KC_U,    KC_I,     KC_O,     KC_P,     KC_BSLS,
-                 TG(_NUMPAD), KC_H,    KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-                              KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_RSFT),
-                                       KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
+  // right hand
+   TG(4),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,
+   KC_TRANSPARENT, KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_BSLASH,
+   KC_TRANSPARENT, KC_K,           RGUI_T(KC_N),   RALT_T(KC_E),   RSFT_T(KC_I),   RCTL_T(KC_O),   KC_QUOTE,
+                   KC_M,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
+                                                   KC_MINUS,       KC_LBRACKET,    KC_RBRACKET,    KC_RCTRL,
         KC_BSPC, KC_ENT,
         KC_PGUP, KC_PGDN,
         KC_LCTL, KC_LALT),
 
-[_FN] = LAYOUT_5x7(
+[_NUMBERS] = LAYOUT_5x7(
   // left hand
-   _______,   KC_F1,     KC_F2,      KC_F3,    KC_F4,     KC_F5,    KC_F6,
-   _______,   _______,   _______,    KC_UP,    _______,   _______,  _______,
-   _______,   _______,   KC_LEFT,    KC_DOWN,  KC_RGHT,   _______,  RESET,
-   _______,   _______,   _______,   _______,   _______,   _______,
-   KC_MSTP,   KC_MPLY,   KC_MPRV,   KC_MNXT,
-                               _______, _______,
-                               _______, _______,
-                               _______, _______,
+  KC_ESCAPE,      KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,       
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
         // right hand
-                     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,
-                     _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                     _______,   _______,   _______,   _______,   _______,   _______,   _______,
-                                _______,   _______,   _______,   _______,   _______,   _______,
-                                                      _______,   _______,   _______,   _______,
-        KC_DEL, _______,
-        _______, _______,
-        _______, _______),
+  KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
+  KC_TRANSPARENT, KC_NO,          KC_7,           KC_8,           KC_9,           KC_KP_SLASH,    KC_F12,
+  KC_TRANSPARENT, KC_NO,          KC_4,           KC_5,           KC_6,           KC_KP_ASTERISK, KC_F13,
+                  KC_NO,          KC_1,           KC_2,           KC_3,           KC_KP_MINUS,    KC_EQUAL,
+                                                  KC_KP_0,        KC_KP_DOT,      KC_KP_PLUS,     KC_ENTER,
+        KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT),
 
-[_NUMPAD] = LAYOUT_5x7(
+[_SYMBOLS] = LAYOUT_5x7(
   // left hand
-   _______,   _______,   _______,   _______,   _______,   _______,  _______,
-   _______,   _______,   _______,   _______,   _______,   _______,  _______,
-   _______,   _______,   _______,   _______,   _______,   _______,  _______,
-   _______,   _______,   _______,   _______,   _______,   _______,
-   _______,   _______,   _______,   _______,
-                               _______, _______,
-                               _______, _______,
-                               _______, _______,
-        // right hand
-                     _______,   _______,   KC_NLCK,   _______,   KC_PMNS,   KC_PPLS,   _______,
-                     _______,   _______,   KC_P7,     KC_P8,     KC_P9,     _______,   _______,
-                     _______,   _______,   KC_P4,     KC_P5,     KC_P6,     KC_PAST,   _______,
-                                _______,   KC_P1,     KC_P2,     KC_P3,     KC_PSLS,   _______,
-                                                      KC_P0,     KC_PDOT,   _______,   _______,
-        _______, KC_PENT,
-        _______, _______,
-        _______, _______),
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,  
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,       
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+  // right hand
+ KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+ KC_TRANSPARENT, KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_UNDS,        KC_PLUS,        KC_TRANSPARENT,
+ KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_TRANSPARENT,
+                 KC_NO,          KC_UNDS,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT),
+[_ARROW] = LAYOUT_5x7(
+  // left hand
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,  
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,       
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+                               KC_TRANSPARENT, KC_TRANSPARENT,
+  // right hand
+ KC_TRANSPARENT, KC_NO,          KC_INSERT,      KC_HOME,        KC_PGUP,        KC_NO,          KC_TRANSPARENT,
+ KC_TRANSPARENT, KC_NO,          KC_DELETE,      KC_END,         KC_PGDOWN,      KC_NO,          KC_TRANSPARENT,
+ KC_TRANSPARENT, KC_NO,          KC_NO,          KC_UP,          KC_NO,          KC_NO,          KC_TRANSPARENT,
+                 KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT,
+                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT,
+        KC_TRANSPARENT, KC_TRANSPARENT)
 
 };
