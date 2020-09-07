@@ -28,16 +28,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_LCTRL,       KC_LEFT,        KC_DOWN,        KC_UP,
                                KC_SPC, TT(_NUMBERS),
                                KC_LCTL, KC_LSFT,
-                               KC_LGUI, KC_LALT,
+                               KC_LALT, KC_LGUI,
   // right hand
    TG(4),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,
    KC_TRANSPARENT, KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_BSLASH,
    KC_TRANSPARENT, KC_K,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,
                    KC_M,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
                                                    KC_MINUS,       KC_LBRACKET,    KC_RBRACKET,    KC_RCTRL,
-        KC_BSPC, KC_ENT,
+        KC_TAB, KC_ENT,
         KC_RSFT, KC_RCTL,
-        KC_RALT, KC_RGUI),
+        KC_RGUI, KC_RALT),
 
 [_NUMBERS] = LAYOUT_5x7(
   // left hand
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
  KC_TRANSPARENT, KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_UNDS,        KC_PLUS,        KC_TRANSPARENT,
  KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_TRANSPARENT,
-                 KC_NO,          KC_UNDS,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                 KC_GRAVE,       KC_UNDS,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT,
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  KC_TRANSPARENT, KC_NO,          KC_DELETE,      KC_END,         KC_PGDOWN,      KC_NO,          KC_TRANSPARENT,
  KC_TRANSPARENT, KC_NO,          KC_NO,          KC_UP,          KC_NO,          KC_NO,          KC_TRANSPARENT,
                  KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT,
-                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                                 KC_NO,          KC_NO,          KC_NO,          KC_NO,
         KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT)
