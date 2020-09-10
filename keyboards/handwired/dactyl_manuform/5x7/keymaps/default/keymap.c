@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_G,           KC_TRANSPARENT,
    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           
    KC_LCTRL,       KC_LEFT,        KC_DOWN,        KC_UP,
-                               KC_SPC, TT(_NUMBERS),
+                               KC_SPC, TT(_ARROW),
                                KC_LCTL, KC_LSFT,
                                KC_LALT, KC_LGUI,
   // right hand
@@ -108,11 +108,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                KC_TRANSPARENT, KC_TRANSPARENT,
                                KC_TRANSPARENT, KC_TRANSPARENT,
   // right hand
- KC_TRANSPARENT, KC_NO,          KC_INSERT,      KC_HOME,        KC_PGUP,        KC_NO,          KC_TRANSPARENT,
- KC_TRANSPARENT, KC_NO,          KC_DELETE,      KC_END,         KC_PGDOWN,      KC_NO,          KC_TRANSPARENT,
- KC_TRANSPARENT, KC_NO,          KC_NO,          KC_UP,          KC_NO,          KC_NO,          KC_TRANSPARENT,
-                 KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_TRANSPARENT,
-                                                 KC_NO,          KC_NO,          KC_NO,          KC_NO,
+  KC_NO,          KC_NO,          KC_INSERT,      KC_HOME,        KC_PGUP,        KC_NO,          KC_NO,
+  KC_NO,          KC_NO,          KC_DELETE,      KC_END,         KC_PGDOWN,      KC_NO,          KC_NO,
+  KC_NO,          KC_NO,          KC_NO,          KC_UP,          KC_NO,          KC_NO,          KC_NO,
+                  KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_NO,
+                                                  KC_NO,          KC_NO,          KC_NO,          KC_NO,
         KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT,
         KC_TRANSPARENT, KC_TRANSPARENT)
