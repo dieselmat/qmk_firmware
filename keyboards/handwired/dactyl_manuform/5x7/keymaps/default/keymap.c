@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_COLEMAK] = LAYOUT_5x7(
   // left hand
-   KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(1),
+   KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(_NUMBERS),
    LCTL(KC_BSPACE),LT(1,KC_Q),     LT(2,KC_W),     LT(3,KC_F),     LT(4,KC_P),     KC_B,           KC_CAPSLOCK,
    KC_BSPACE,      KC_A,           KC_R,           KC_S,           KC_T,           KC_G,           KC_TRANSPARENT,
    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           
@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                KC_LCTL, KC_LSFT,
                                KC_LALT, KC_LGUI,
   // right hand
-   TG(4),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,
+   TG(_ARROW),     KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,
    KC_TRANSPARENT, KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_BSLASH,
    KC_TRANSPARENT, KC_K,           KC_N,           KC_E,           KC_I,           KC_O,           KC_QUOTE,
                    KC_M,           KC_H,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSHIFT,
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                KC_TRANSPARENT, KC_TRANSPARENT,
                                KC_TRANSPARENT, KC_TRANSPARENT,
   // right hand
-  KC_NO,          KC_NO,          KC_INSERT,      KC_HOME,        KC_PGUP,        KC_NO,          KC_NO,
+  KC_TRANSPARENT, KC_NO,          KC_INSERT,      KC_HOME,        KC_PGUP,        KC_NO,          KC_NO,
   KC_NO,          KC_NO,          KC_DELETE,      KC_END,         KC_PGDOWN,      KC_NO,          KC_NO,
   KC_NO,          KC_NO,          KC_NO,          KC_UP,          KC_NO,          KC_NO,          KC_NO,
                   KC_NO,          KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_NO,          KC_NO,
